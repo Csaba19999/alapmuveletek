@@ -350,7 +350,15 @@ String muveletJ = "+";
     }//GEN-LAST:event_osszeadjButtonActionPerformed
 
     private void osztasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osztasjButtonActionPerformed
-        // TODO add your handling code here:
+     if(muveletJ.equals("*")){
+            int osszeg = rand_int1 * rand_int2;
+            kepletjLabel.setText(rand_int1+muveletJ+rand_int2);
+            if(valaszjTextField.getText().equals(osszeg+"?")){
+                jo++;
+            }else{
+                rossz++;
+            }
+        }
     }//GEN-LAST:event_osztasjButtonActionPerformed
 
     private void kivonjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivonjButtonActionPerformed
