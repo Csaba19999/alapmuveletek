@@ -1,15 +1,15 @@
-
 package pkg2021.pkg03.pkg19_kozosgui01.terv;
+
 import java.util.Random;
 
-
 public class MainGoodJFrame extends javax.swing.JFrame {
-String muveletJ = "+";
-    /**
-     * Creates new form MainGoodJFrame
-     */
+
+    String muveletJ = "";
+    Random rand = new Random();
+    int osszegkivon;
+
     public MainGoodJFrame() {
-        
+
         initComponents();
     }
 
@@ -310,35 +310,34 @@ String muveletJ = "+";
     }// </editor-fold>//GEN-END:initComponents
 
     private void ellenorzesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ellenorzesjButtonActionPerformed
-        
+        if (valaszjTextField.getText().equals(osszegkivon + "")) {
+            eredmenyjLabel.setText("Helyes válasz");
+        }
     }//GEN-LAST:event_ellenorzesjButtonActionPerformed
 
     private void kepletjLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_kepletjLabelAncestorAdded
         Random rand = new Random();
         int rand_int1 = rand.nextInt(30);
         int rand_int2 = rand.nextInt(30);
-        
-        if(muveletJ.equals("+")){
+
+        if (muveletJ.equals("+")) {
             int osszeg = rand_int1 + rand_int2;
-            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+osszeg);
-        }else if(muveletJ.equals("-")){
-        
-        }else if(muveletJ.equals("*")){
-        
-        }else if(muveletJ.equals("")){
-        
-        }else{
+            kepletjLabel.setText(rand_int1 + muveletJ + rand_int2 + "=" + osszeg);
+        } else if (muveletJ.equals("-")) {
+
+        } else if (muveletJ.equals("*")) {
+
+        } else if (muveletJ.equals("")) {
+
+        } else {
             kepletjLabel.setText("Kérlek válassz egy ");
         }
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_kepletjLabelAncestorAdded
 
     private void eredmenyjLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_eredmenyjLabelAncestorAdded
-        
+
     }//GEN-LAST:event_eredmenyjLabelAncestorAdded
 
     private void valaszjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valaszjTextFieldActionPerformed
@@ -354,7 +353,13 @@ String muveletJ = "+";
     }//GEN-LAST:event_osztasjButtonActionPerformed
 
     private void kivonjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivonjButtonActionPerformed
-        // TODO add your handling code here:
+        int rand_int1 = rand.nextInt(30);
+        int rand_int2 = rand.nextInt(30);
+        int osszeg = rand_int1 - rand_int2;
+        muveletJ = "-";
+        kepletjLabel.setText(rand_int1 + muveletJ + rand_int2 + "=" + "??");
+        osszegkivon = osszeg;
+
     }//GEN-LAST:event_kivonjButtonActionPerformed
 
     private void szorzasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_szorzasjButtonActionPerformed
