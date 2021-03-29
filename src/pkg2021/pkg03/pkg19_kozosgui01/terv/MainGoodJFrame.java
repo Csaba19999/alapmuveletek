@@ -4,7 +4,9 @@ import java.util.Random;
 
 
 public class MainGoodJFrame extends javax.swing.JFrame {
-String muveletJ = "+";
+String muveletJ = "/";
+int jo =0;
+int rosz =0;
     /**
      * Creates new form MainGoodJFrame
      */
@@ -320,15 +322,28 @@ String muveletJ = "+";
         
         if(muveletJ.equals("+")){
             int osszeg = rand_int1 + rand_int2;
-            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+osszeg);
+            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+"?");
+            if(valaszjTextField.getText().equals(osszeg+"")){
+                jo++;
+            }else{
+                rosz++;
+            }
         }else if(muveletJ.equals("-")){
         
         }else if(muveletJ.equals("*")){
         
-        }else if(muveletJ.equals("")){
-        
+        }else if(muveletJ.equals("/")){
+            int osszeg = rand_int1 / rand_int2;
+            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+"?");
+            if(valaszjTextField.getText().equals(osszeg+"") && !valaszjTextField.getText().equals("")){
+                jo++;
+                eredmenyjLabel.setText("Helyes válasz. Gratulálok!");
+            }else{
+                rosz++;
+                eredmenyjLabel.setText("Rossz válasz. Próbáld újra!");
+            }
         }else{
-            kepletjLabel.setText("Kérlek válassz egy ");
+            kepletjLabel.setText("Kérlek válassz egy műveleti formát");
         }
         
         
