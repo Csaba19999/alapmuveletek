@@ -7,7 +7,17 @@ public class MainGoodJFrame extends javax.swing.JFrame {
     String muveletJ = "";
     Random rand = new Random();
     int osszegkivon;
+    int osszeg;
 
+    int rand_int1 = rand.nextInt(30);
+    int rand_int2 = rand.nextInt(30);
+
+    int jo = 0;
+    int rosz = 0;
+
+    /**
+     * Creates new form MainGoodJFrame
+     */
     public MainGoodJFrame() {
 
         initComponents();
@@ -322,6 +332,7 @@ public class MainGoodJFrame extends javax.swing.JFrame {
 
         if (muveletJ.equals("+")) {
             int osszeg = rand_int1 + rand_int2;
+
             kepletjLabel.setText(rand_int1 + muveletJ + rand_int2 + "=" + osszeg);
         } else if (muveletJ.equals("-")) {
 
@@ -331,6 +342,30 @@ public class MainGoodJFrame extends javax.swing.JFrame {
 
         } else {
             kepletjLabel.setText("Kérlek válassz egy ");
+            kepletjLabel.setText(rand_int1 + muveletJ + rand_int2 + "=" + "?");
+            if (valaszjTextField.getText().equals(osszeg + "")) {
+                jo++;
+            } else {
+                rosz++;
+            }
+        }
+        if (muveletJ.equals("-")) {
+
+        } else if (muveletJ.equals("*")) {
+
+        } else if (muveletJ.equals("/")) {
+            int osszeg = rand_int1 / rand_int2;
+            kepletjLabel.setText(rand_int1 + muveletJ + rand_int2 + "=" + "?");
+            if (valaszjTextField.getText().equals(osszeg + "") && !valaszjTextField.getText().equals("")) {
+                jo++;
+                eredmenyjLabel.setText("Helyes válasz. Gratulálok!");
+            } else {
+                rosz++;
+                eredmenyjLabel.setText("Rossz válasz. Próbáld újra!");
+            }
+        } else {
+            kepletjLabel.setText("Kérlek válassz egy műveleti formát");
+
         }
 
 
@@ -345,11 +380,42 @@ public class MainGoodJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_valaszjTextFieldActionPerformed
 
     private void osszeadjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osszeadjButtonActionPerformed
-        // TODO add your handling code here:
+        int osszeg = rand_int1 + rand_int2;
+        kepletjLabel.setText(rand_int1 + muveletJ + rand_int2);
+        if (valaszjTextField.getText().equals(osszeg + "")) {
+            jo++;
+        } else {
+
+        }
+        if (muveletJ.equals("+")) {
+            osszeg = rand_int1 + rand_int2;
+            kepletjLabel.setText(rand_int1 + muveletJ + rand_int2);
+            if (valaszjTextField.getText().equals(osszeg + "")) {
+                jo++;
+            } else if (muveletJ.equals("/")) {
+                osszeg = rand_int1 / rand_int2;
+                kepletjLabel.setText(rand_int1 + muveletJ + rand_int2 + "=" + "?");
+                if (valaszjTextField.getText().equals(osszeg + "") && !valaszjTextField.getText().equals("")) {
+                    jo++;
+                    eredmenyjLabel.setText("Helyes válasz. Gratulálok!");
+                } else {
+                    rosz++;
+                    eredmenyjLabel.setText("Rossz válasz. Próbáld újra!");
+                }
+            }
+        }
     }//GEN-LAST:event_osszeadjButtonActionPerformed
 
     private void osztasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osztasjButtonActionPerformed
-        // TODO add your handling code here:
+        if (muveletJ.equals("*")) {
+            int osszeg = rand_int1 * rand_int2;
+            kepletjLabel.setText(rand_int1 + muveletJ + rand_int2);
+            if (valaszjTextField.getText().equals(osszeg + "?")) {
+                jo++;
+            } else {
+
+            }
+        }
     }//GEN-LAST:event_osztasjButtonActionPerformed
 
     private void kivonjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivonjButtonActionPerformed
