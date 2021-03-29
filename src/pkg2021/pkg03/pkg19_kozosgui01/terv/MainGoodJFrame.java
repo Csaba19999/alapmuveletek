@@ -4,11 +4,20 @@ import java.util.Random;
 
 
 public class MainGoodJFrame extends javax.swing.JFrame {
+<<<<<<< HEAD
 
     String muveletJ = "+";
     Random rand = new Random();
         int rand_int1 = rand.nextInt(30);
         int rand_int2 = rand.nextInt(30);
+=======
+String muveletJ = "/";
+int jo =0;
+int rosz =0;
+    /**
+     * Creates new form MainGoodJFrame
+     */
+>>>>>>> c33686f99327746883bc61dc398ed8c060c26c4c
     public MainGoodJFrame() {
         
         initComponents();
@@ -321,15 +330,28 @@ public class MainGoodJFrame extends javax.swing.JFrame {
         
         if(muveletJ.equals("+")){
             int osszeg = rand_int1 + rand_int2;
-            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+osszeg);
+            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+"?");
+            if(valaszjTextField.getText().equals(osszeg+"")){
+                jo++;
+            }else{
+                rosz++;
+            }
         }else if(muveletJ.equals("-")){
         
         }else if(muveletJ.equals("*")){
         
-        }else if(muveletJ.equals("")){
-        
+        }else if(muveletJ.equals("/")){
+            int osszeg = rand_int1 / rand_int2;
+            kepletjLabel.setText(rand_int1+muveletJ+rand_int2+"="+"?");
+            if(valaszjTextField.getText().equals(osszeg+"") && !valaszjTextField.getText().equals("")){
+                jo++;
+                eredmenyjLabel.setText("Helyes válasz. Gratulálok!");
+            }else{
+                rosz++;
+                eredmenyjLabel.setText("Rossz válasz. Próbáld újra!");
+            }
         }else{
-            kepletjLabel.setText("Kérlek válassz egy ");
+            kepletjLabel.setText("Kérlek válassz egy műveleti formát");
         }
         
         
